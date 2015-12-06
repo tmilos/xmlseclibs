@@ -18,14 +18,14 @@ before_install:
     - composer self-update
     - composer --version
     - hhvm --version
-    
+
 install:
     - COMPOSER_ROOT_VERSION=dev-master composer update --prefer-source
 
 script:
   - bin/phpunit --version
-  - if [[ $EXECUTE_COVERAGE == 'true' ]]; then bin/phpunit --debug --coverage-clover clover.xml tests; fi
-  - if [[ $EXECUTE_COVERAGE != 'true' ]]; then bin/phpunit --debug tests; fi
+  - if [[ $EXECUTE_COVERAGE == 'true' ]]; then bin/phpunit -v --debug --coverage-clover clover.xml tests; fi
+  - if [[ $EXECUTE_COVERAGE != 'true' ]]; then bin/phpunit -v --debug tests; fi
   - echo done
 
 after_success:
