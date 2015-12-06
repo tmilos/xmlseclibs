@@ -23,6 +23,8 @@ install:
     - COMPOSER_ROOT_VERSION=dev-master composer update --prefer-source
 
 script:
+  - hhvm tests/xmlsec-decrypt-content.phpt
+  - php tests/xmlsec-decrypt-content.phpt
   - bin/phpunit --version
   - if [[ $EXECUTE_COVERAGE == 'true' ]]; then bin/phpunit -v --debug --coverage-clover clover.xml tests; fi
   - if [[ $EXECUTE_COVERAGE != 'true' ]]; then bin/phpunit -v --debug tests; fi
