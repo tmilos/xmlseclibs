@@ -17,7 +17,8 @@ matrix:
 before_install:
     - composer self-update
     - composer --version
-
+    - hhvm --version
+    
 install:
     - COMPOSER_ROOT_VERSION=dev-master composer update --prefer-source
 
