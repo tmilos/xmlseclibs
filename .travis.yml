@@ -25,6 +25,7 @@ script:
   - bin/phpunit --version
   - if [[ $EXECUTE_COVERAGE == 'true' ]]; then bin/phpunit --debug --coverage-clover clover.xml tests; fi
   - if [[ $EXECUTE_COVERAGE != 'true' ]]; then bin/phpunit --debug tests; fi
-  
+  - echo done
+
 after_success:
   - if [[ $EXECUTE_COVERAGE == 'true' ]]; then bash <(curl -s https://codecov.io/bash); fi
