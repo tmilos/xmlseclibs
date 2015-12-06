@@ -23,8 +23,8 @@ install:
 
 script:
   - bin/phpunit --version
-  - if [[ $EXECUTE_COVERAGE == 'true' ]]; then bin/phpunit --coverage-clover clover.xml tests; fi
-  - if [[ $EXECUTE_COVERAGE != 'true' ]]; then bin/phpunit tests; fi
+  - if [[ $EXECUTE_COVERAGE == 'true' ]]; then bin/phpunit --debug --coverage-clover clover.xml tests; fi
+  - if [[ $EXECUTE_COVERAGE != 'true' ]]; then bin/phpunit --debug tests; fi
   
 after_success:
   - if [[ $EXECUTE_COVERAGE == 'true' ]]; then bash <(curl -s https://codecov.io/bash); fi
