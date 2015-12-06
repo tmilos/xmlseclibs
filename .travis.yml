@@ -23,7 +23,7 @@ script:
   - hhvm bin/phpunit --version
   - hhvm tests/xmlsec-decrypt.phpt && echo ok
   - hhvm tests/xmlsec-decrypt-content.phpt && echo ok
-  - hhvm xmlsec-encrypt.phpt
+  - hhvm tests/xmlsec-encrypt.phpt
   - if [[ "$TRAVIS_PHP_VERSION" == "hhvm" ]]; then hhvm vendor/phpunit/phpunit/phpunit -v --debug tests; fi
   - if [[ $EXECUTE_COVERAGE == 'true' && "$TRAVIS_PHP_VERSION" != "hhvm" ]]; then bin/phpunit -v --debug --coverage-clover clover.xml tests; fi
   - if [[ $EXECUTE_COVERAGE != 'true' && "$TRAVIS_PHP_VERSION" != "hhvm" ]]; then bin/phpunit -v --debug tests; fi
